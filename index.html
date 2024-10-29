@@ -28,6 +28,40 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest"> -->
+    <!-- Add the following CSS to center images -->
+    <style>
+	#portfolio .folio-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	#portfolio .folio-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%; /* Full height for the container */
+		text-align: center;
+		/* Set a consistent height for all folio-items for better alignment */
+		min-height: 300px; /* Adjust this as per your layout */
+	}
+	
+	#portfolio .folio-item__thumb {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+	
+	#portfolio .folio-item img {
+		max-width: 100%;
+		height: auto; /* Ensure the image maintains its aspect ratio */
+		display: block; /* Treat the image as a block element for centering */
+		object-fit: contain; /* Ensures images fit without distortion */
+		max-height: 100%; /* Ensures images don't overflow the container */
+	}
+    </style>
 
 </head>
 
@@ -265,33 +299,33 @@ Other (prior and maybe future) research interests include the design of wind tur
 
         <div class="row s-portfolio__header">
             <div class="column large-12">
-                <h3>A Few Of My Suggested Readings and Videos</h3>
+                <h3>Recommended Picks: Books, Animations, and Featured Reads</h3>
             </div>
         </div>
 
-        <div class="row collapse block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack folio-list">
+        <div class="row collapse block-large-1-3 block-medium-1-3 block-tab-1-2 block-500-stack folio-list">
 
             <div class="column folio-item">
-                <a href="#modal-02" class="folio-item__thumb">
+                <a href="#modal-01" class="folio-item__thumb">
                     <img src="images/portfolio/karamazov.jpg" 
                          srcset="images/portfolio/karamazov.jpg 1x, 
                                  images/portfolio/karamazov.jpg 2x" alt="">
                 </a>
             </div> <!-- end folio-item -->
-            
-            <div class="column folio-item">
-                <a href="#modal-01" class="folio-item__thumb">
-                    <img src="images/portfolio/Don_Quijote.jpg" 
-                         srcset="images/portfolio/Don_Quijote.jpg 1x, 
-                                 images/portfolio/Don_Quijote.jpg 2x" alt="">
-                </a>
-            </div> <!-- end folio-item -->
 
             <div class="column folio-item">
-                <a href="#modal-03" class="folio-item__thumb">
+                <a href="#modal-02" class="folio-item__thumb">
                     <img src="images/portfolio/ilfu.jpg" 
                          srcset="images/portfolio/ilfu.jpg 1x, 
                                  images/portfolio/ilfu.jpg 2x" alt="">
+                </a>
+            </div> <!-- end folio-item -->
+            
+            <div class="column folio-item">
+                <a href="#modal-03" class="folio-item__thumb">
+                    <img src="images/portfolio/Don_Quijote.jpg" 
+                         srcset="images/portfolio/Don_Quijote.jpg 1x, 
+                                 images/portfolio/Don_Quijote.jpg 2x" alt="">
                 </a>
             </div> <!-- end folio-item -->
 
@@ -303,14 +337,16 @@ Other (prior and maybe future) research interests include the design of wind tur
                 </a>
             </div> <!-- end folio-item -->
 
-<!--
+
             <div class="column folio-item">
                 <a href="#modal-05" class="folio-item__thumb">
-                    <img src="images/portfolio/fuji.jpg" 
-                         srcset="images/portfolio/fuji.jpg 1x, 
-                                 images/portfolio/fuji@2x.jpg 2x" alt="">
+                    <img src="images/portfolio/scales.jpg" 
+                         srcset="images/portfolio/scales.jpg 1x, 
+                                 images/portfolio/scales.jpg 2x" alt="">
                 </a>
             </div> <!-- end folio-item -->
+            
+
 
 <!--
             <div class="column folio-item">
@@ -344,7 +380,7 @@ Other (prior and maybe future) research interests include the design of wind tur
 
         <!-- Modal Templates Popup
         =========================================================== -->
-        <div id="modal-02" hidden>
+        <div id="modal-01" hidden>
             <div class="modal-popup">
                 <img src="images/portfolio/gallery/g-karamazov.jpg" alt="" />
     
@@ -357,8 +393,21 @@ Other (prior and maybe future) research interests include the design of wind tur
     
             </div>
         </div> <!-- end modal -->
-        
-        <div id="modal-01" hidden>
+ 
+        <div id="modal-02" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/gallery/g-ilfu.jpg" alt="" />
+    
+                <div class="modal-popup__desc">
+                    <h5>The Late Mattia Pascal</h5>
+                    <p>Il fu Mattia Pascal, Luigi Pirandello, 1904.</p>
+                    <p><font size="-2">No copyright infringement intended. All rights belong to their respective owners.</font><p>
+                </div>
+    
+            </div>
+        </div> <!-- end modal -->
+                
+        <div id="modal-03" hidden>
             <div class="modal-popup">
                 <img src="images/portfolio/gallery/g-Don_Quijote.jpg" alt="" />
     
@@ -370,19 +419,6 @@ Other (prior and maybe future) research interests include the design of wind tur
                 </div>
     
 
-            </div>
-        </div> <!-- end modal -->
-
-        <div id="modal-03" hidden>
-            <div class="modal-popup">
-                <img src="images/portfolio/gallery/g-ilfu.jpg" alt="" />
-    
-                <div class="modal-popup__desc">
-                    <h5>The Late Mattia Pascal</h5>
-                    <p>Il fu Mattia Pascal, Luigi Pirandello, 1904.</p>
-                    <p><font size="-2">No copyright infringement intended. All rights belong to their respective owners.</font><p>
-                </div>
-    
             </div>
         </div> <!-- end modal -->
 
@@ -401,23 +437,24 @@ Other (prior and maybe future) research interests include the design of wind tur
             </div>
         </div> <!-- end modal -->
 
-<!--        <div id="modal-05" hidden>
+        <div id="modal-05" hidden>
             <div class="modal-popup">
 
-                <img src="images/portfolio/gallery/g-fuji.jpg" alt="" />
+                <img src="images/portfolio/gallery/g-scales.jpg" alt="" />
     
                 <div class="modal-popup__desc">
-                    <h5>Fuji</h5>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                    <ul class="modal-popup__cat">
-                        <li>Product Design</li>
-                    </ul>
+                    <h5>The onset of transition in an idealised aortic arch flow</h5>
+                    <p>Our <a href="https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.8.113903">research</a> on the instability mechanism in a 180°-bend in pipe flow was featured on the <a href="https://phys.org/news/2023-12-quantify-onset-turbulence-pipe-bent.html">Science X network</a> , 
+                    as it clarifies how the transition from laminar to turbulent flow occurs in curved pipes, similar to that in the aortic arch. Understanding this transition is important, as turbulence in the aorta may be linked to various heart diseases.</p>
+                    <p>The image is from the cartoon series <a href="https://en.wikipedia.org/wiki/Once_Upon_a_Time..._Life">Once Upon a Time...Life</a>, where blood cells are depicted as animated characters to illustrate bodily functions in an engaging, accessible way.</p>                                        
+                    <p><font size="-2">No copyright infringement intended. All rights belong to their respective owners.</font><p>
                 </div>
     
-                <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
+                <a href="https://phys.org/news/2023-12-quantify-onset-turbulence-pipe-bent.html" class="modal-popup__details">Article link</a>                
             </div>
         </div> <!-- end modal -->
-
+        
+        
 <!--        <div id="modal-06" hidden>
             <div class="modal-popup">
                 <img src="images/portfolio/gallery/g-skaterboy.jpg" alt="" />
