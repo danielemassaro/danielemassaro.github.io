@@ -72,6 +72,41 @@
 		object-fit: contain; /* Ensures images fit without distortion */
 		max-height: 100%; /* Ensures images don't overflow the container */
 	}
+	#portfolio .folio-item img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		object-fit: contain;
+		max-height: 100%;
+	}
+
+	/* basicLightbox: fit the real iPhone viewport */
+	.basicLightbox {
+		height: 100vh;
+		height: 100dvh;
+	}
+
+	/* bring the X above the popup and make it visible on white images */
+	.basicLightbox::after {
+		z-index: 3;
+		top: calc(env(safe-area-inset-top, 0px) + 1rem);
+		right: 1rem;
+		background-color: rgba(0, 0, 0, 0.65);
+		border-radius: 50%;
+	}
+
+	/* keep the popup inside the screen and let it scroll internally */
+	.basicLightbox__placeholder {
+		max-height: 100%;
+	}
+
+	.modal-popup {
+		max-height: calc(100vh - 6rem);
+		max-height: calc(100dvh - 6rem);
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
     </style>
 
 </head>
@@ -122,7 +157,7 @@
                     <h1>Daniele Massaro</h1>
 
                     <h3>
-<span>Postdoctoral researcher</span> in Fluid Mechanics at the Department of Mechanical Engineering, <span>Massachusetts Institute of Technology</span>. My current research aims to investigate <span>vortex dynamics</span> in wall-bounded flows. During my PhD, I studied <span>transitional and turbulent shear flows</span> through <span>space-adaptive</span> direct numerical simulations.
+<span>Postdoctoral researcher</span> at the Department of Applied Mathematics and Theoretical Physics, <span>University of Cambridge</span>. My current research develops a <span>causal-spectral framework</span> for gust-wing interaction. Previously, at KTH and MIT, I studied <span>transitional and turbulent shear flows</span> through <span>space-time adaptive</span> direct numerical simulations, and developed <span>machine-learning</span> models for predicting unsteady vortical flows.
                     </h3>
 
                     <div class="s-hero__content-social">
@@ -163,12 +198,13 @@
 
         <div class="row">
             <div class="column large-3 tab-12">
-                <img class="s-about__pic" src="images/avatars/pic4.JPG" alt="">
+                <img class="s-about__pic" src="images/avatars/DM_picG.JPG" alt="">
             </div>
             <div class="column large-9 tab-12 s-about__content">
                 <h3>About Me</h3>
                 <p>
-Originally from Verona, I hold a Bachelor and Master of Science in Aerospace Engineering from <a href="https://www.polimi.it/en/"> Politecnico di Milano</a>. During my Master's thesis, I conducted research on the stability of wall-bounded flows with spanwise forcing with Prof. <a href="https://maurizioquadrio.github.io">Maurizio Quadrio</a>. Then I obtained a PhD in computational fluid dynamics from <a href="https://www.kth.se/en/"> KTH Royal Institute of Technology</a> in Stockholm, Sweden,  under the supervision of Prof. <a href="https://www.lstm.tf.fau.de/person/philipp-schlatter/">Philipp Schlatter</a> and Lect. <a href="https://research.manchester.ac.uk/en/persons/saleh.rezaeiravesh">Saleh Rezaeiravesh</a>. We conducted <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1841755&dswid=3799">space-adaptive direct numerical simulations</a> to study transitional and turbulent shear flows. Currently, I am a Postdoctoral fellow at <a href="https://www.mit.edu">MIT</a> working on vortex dynamics with Prof. <a href="https://meche.mit.edu/people/faculty/wvanrees@mit.edu">Wim van Rees</a>. 
+Originally from Verona, I hold a Master of Science in Aerospace Engineering from <a href="https://www.polimi.it/en/">Politecnico di Milano</a>, with a thesis on the stability of wall-bounded flows with spanwise forcing under the supervision of Prof. <a href="https://maurizioquadrio.github.io">Maurizio Quadrio</a>. I then obtained a PhD in computational fluid dynamics from <a href="https://www.kth.se/en/">KTH Royal Institute of Technology</a> in Stockholm, under the supervision of Prof. <a href="https://www.lstm.tf.fau.de/person/philipp-schlatter/">Philipp Schlatter</a>. There, I conducted <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1841755&dswid=3799">space-adaptive direct numerical simulations</a> to study transitional and turbulent shear flows. I subsequently spent two years as a researcher at <a href="https://www.mit.edu">MIT</a>, working with Prof. <a href="https://meche.mit.edu/people/faculty/wvanrees@mit.edu">Wim van Rees</a> on vortex dynamics and machine-learning-based prediction of unsteady aerodynamic loads. I am currently a Postdoctoral Fellow at the University of Cambridge, where I work with Prof. <a href="https://www.damtp.cam.ac.uk/user/mjc249/home.html">Matthew Colbrook</a> on a causal-spectral framework for vortex-gust wing interaction.
+
 
 <!-- Originally from Verona, I hold a Bachelor and Master of Science in Aerospace Engineering from <a href="https://www.polimi.it/"> Politecnico di Milano</a>. During my Master's thesis, I conducted research on the stability of wall-bounded flows with spanwise forcing, under the supervision of Prof. <a href="https://www.aero.polimi.it/en/staff/maurizio.quadrio">Maurizio Quadrio</a>. Currently, I am pursuing my PhD in computational fluid dynamics at <a href="https://www.kth.se/"> KTH Royal Institute of Technology</a> in Stockholm, Sweden, with advisors Prof. <a href="https://www.kth.se/profile/philipps">Philipp Schlatter</a> and Lect. <a href="https://research.manchester.ac.uk/en/persons/saleh.rezaeiravesh">Saleh Rezaeiravesh</a>. --> 
 
@@ -224,12 +260,13 @@ Originally from Verona, I hold a Bachelor and Master of Science in Aerospace Eng
 
                     <p>
 
-I've always had wide-ranging interests, from philosophy to the natural sciences. Whilst I ended up following a scientific career, I've kept up a real love of literature and the humanities; I still lose myself in classic novels whenever I can (you'll find a few recommendations below). At Politecnico di Milano, I built up a solid theoretical foundation, particularly through courses in functional and complex analysis, while also covering subjects like rotary wing dynamics, spacecraft orbits, and structural design for aerospace systems. But it was fluid mechanics that really grabbed me: there's something rather elegant about how it brings together maths, physics, and engineering.
+I’ve always had wide-ranging interests, from philosophy to the natural sciences. Although I ended up following a scientific career, I’ve kept a real love of literature and the humanities, and I still lose myself in classic novels whenever I can (you’ll find a few recommendations below). At Politecnico di Milano, I built a solid theoretical foundation, particularly through courses in functional and complex analysis, while also studying rotary-wing dynamics and spacecraft orbits. But it was fluid mechanics that really captured me: there’s something rather elegant about the way it brings together mathematics, physics and engineering.
+<p> 
+My work on turbulence began with my Master's thesis on stability and transition delay. During my PhD, I delved into wall turbulence and coherent structures, using high-order spectral element methods and adaptive mesh refinement for direct numerical simulations. To gain a deeper understanding, we combined established techniques such as Proper Orthogonal Decomposition with cutting-edge approaches such as Shannon transfer entropy from information theory, investigating mechanisms in transitional and turbulent flows. 
 <p>
-My work in turbulence started with my Master's thesis on stability and transition delay. During my PhD, I delved into wall turbulence and coherent structures, using high-order spectral element methods and adaptive mesh refinement for direct numerical simulations. To get a deeper understanding, we combined established techniques like Proper Orthogonal Decomposition with cutting-edge approaches such as Shannon transfer entropy from information theory, uncovering mechanisms in transitional and turbulent flows.
+At MIT, I explored vortex-dominated flows, drawing on MIT's long-standing tradition in artificial intelligence to develop AI models for predicting complex aerodynamic interactions.
 <p>
-I've also explored other topics, like wind turbine design, biological flows, adjoint-based optimisation, and vortex dynamics, and may well pursue them further in future.
-
+I am always keen to learn and to collaborate, especially on topics ranging from classical turbulence theory to modern AI modelling of complex flow systems.
 <!--Since high school, my interests have been highly varied, ranging from philosophy and literature to natural sciences. Albeit I followed a scientific path, in my leisure time the humanistic flame is constantly fed by reading classical novels, among others "In Search of Lost Time" by Marcel Proust. During my studies at Politecnico di Milano, my theoretical attitude has come out, strongly powered by mathematically oriented classes, such as functional and complex analysis. I took different courses, from rotary wing dynamics to spacecraft orbits design, but I was enchanted mainly by fluid mechanics problems. Here you will encounter math, physics and engineering all at once.
 
 My route to turbulence started with the Master's thesis about stability and transition delay. Later on in my PhD, I had the opportunity to study wall turbulence and coherent structures by performing direct numerical simulations with high-order spectral element method and using adaptive mesh refinement. We also use well-established, e.g.  Proper Orthogonal Decomposition (POD), and innovative, as the transfer entropy from Information Theory (IT), techniques to unveil new mechanisms in transitional and turbulent flows. 
@@ -267,6 +304,7 @@ Other (prior and maybe future) research interests include the design of wind tur
               <div class="twelve columns">
                 <ul class="disc">
                   <li>Master's thesis supervision  - Spring 2026</li>
+                  <li>Committee member, de Florez Competition (MechE), 2025 and 2026</li>
                 </ul>
               </div>
            </div> <!-- item end -->
